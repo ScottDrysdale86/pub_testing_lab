@@ -1,3 +1,6 @@
+from jinja2 import pass_environment
+
+
 class Pub:
     # Constructor
     def __init__(self, _name, _till):
@@ -9,3 +12,6 @@ class Pub:
             return True
         else:
             return False
+
+    def increase_till(self, amount):
+        self.till += amount
