@@ -26,3 +26,4 @@ class Pub:
         if self.age_check(customer) and self.drunkness_check(customer):
             customer.reduce_wallet(drink.price)
             self.increase_till(drink.price)
+            customer.increase_drunkness(drink.alcohol_level)
