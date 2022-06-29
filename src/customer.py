@@ -11,3 +11,6 @@ class Customer:
 
     def reduce_wallet(self, amount):
         self.wallet -= amount
+
+    def reduce_drunkness(self, amount):
+        self.drunkness -= amount
