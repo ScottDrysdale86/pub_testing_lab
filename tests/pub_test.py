@@ -2,6 +2,7 @@ import unittest
 from src.pub import Pub
 from src.customer import Customer
 from src.drink import Drink
+from src.food import Food
 
 
 class TestPub(unittest.TestCase):
@@ -76,3 +77,26 @@ class TestPub(unittest.TestCase):
         self.assertEqual(19.00, customer.wallet)
         self.assertEqual(101.00, self.pub.till)
         self.assertEqual(11, customer.drunkness)
+
+    def test_sell_food(self):
+        customer = Customer("Scott", 50.00, 20)
+        food = Food("Burger", 3.99, 3)
+        self.pub.sell_food(food, customer)
+        self.assertEqual(46.01, customer.wallet)
+        self.assertEqual(103.99, self.pub.till)
+        self.assertEqual(-3, customer.drunkness)
+
+    def test_quantity_check(self):
+        drink = self.pub.check_quantity("Guinness")
+        self.assertEqual(5, self.pub.check_quantity("Guinness"))
+
+    def test_reduce_quantity(self):
+        drink = Drink("Guinness", 1, 11)
+        self.pub.reduce_quantity("Guinness")
+        self.assertEqual(4, self.pub.check_quantity(drink.name))
+
+    def test_stock_value(self):
+        drink = Drink("Guinness", 1, 5)
+        drink2 = Drink("Corona", 2, 5)
+        drink_list = [drink, drink2]
+        self.assertEqual(7.00, self.pub.stock_value(drink_list))
