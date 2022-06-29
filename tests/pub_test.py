@@ -38,3 +38,5 @@ class TestPub(unittest.TestCase):
         customer.increase_drunkness(20)
         drunkness = self.pub.drunkness_check(customer)
         self.assertEqual(False, drunkness)
+
+        
