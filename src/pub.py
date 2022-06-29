@@ -21,3 +21,8 @@ class Pub:
             return True
         else:
             return False
+
+    def sell_drink(self, drink, customer):
+        if self.age_check(customer) and self.drunkness_check(customer):
+            customer.reduce_wallet(drink.price)
+            self.increase_till(drink.price)
