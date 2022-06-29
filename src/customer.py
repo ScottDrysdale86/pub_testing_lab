@@ -5,3 +5,6 @@ class Customer:
         self.wallet = _wallet
         self.age = _age
         self.drunkness = 0
+
+    def increase_drunkness(self, amount):
+        self.drunkness += amount

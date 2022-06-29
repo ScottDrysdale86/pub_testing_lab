@@ -26,6 +26,15 @@ class TestPub(unittest.TestCase):
 
     def test_till_increase(self):
         self.pub.increase_till(3.00)
-        self.assertEqual(103.00 self.pub.till)
+        self.assertEqual(103.00, self.pub.till)
 
-    
+    def test_drunkness_ok(self):
+        customer = Customer("Scott", 50.00, 20)
+        drunkness = self.pub.drunkness_check(customer)
+        self.assertEqual(True, drunkness)
+
+    def test_drunkness__not_ok(self):
+        customer = Customer("Scott", 50.00, 20)
+        customer.increase_drunkness(20)
+        drunkness = self.pub.drunkness_check(customer)
+        self.assertEqual(False, drunkness)

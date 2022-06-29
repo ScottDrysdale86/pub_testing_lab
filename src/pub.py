@@ -15,3 +15,9 @@ class Pub:
 
     def increase_till(self, amount):
         self.till += amount
+
+    def drunkness_check(self, customer):
+        if customer.drunkness <= 10:
+            return True
+        else:
+            return False
